@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="i18n.js"></script>    
+</head>
+<body>
+    <h2 class="hello-title">Hello 자바</h2>
+    <span th:text="${param1}"></span><br/>
+    <br>
+    using thymeleaf
+    <h1 th:text="#{greeting}"></h1> greeting_en_US shown if messages_*.properties not found
+    
+    <!-- <br>
+    using JSP
+    <h1><spring:message code="greeting" text="default"/></h1> -->
+
+    <br>
+    <span th:text="#{lang.change}"></span>:
+	<select id="locales">
+	    <option value=""></option>
+	    <option value="ko" th:text="#{lang.ko}"></option>
+	    <option value="en" th:text="#{lang.eng}"></option>
+	    <option value="ch" th:text="#{lang.ch}"></option>
+	</select>
+    
+</body>
+</html>
