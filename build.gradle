@@ -36,7 +36,7 @@ sourceCompatibility = '1.8'
 
 //mainly for executable packaging
 bootWar{
-	archiveBaseName="aa.spring"
+	archiveBaseName="aa.kosa"
 	archiveVersion="0.0.1-SNAPSHOT"
 }
 
@@ -111,33 +111,23 @@ ext {
    currentProjectjGradleBuildFile = "$projectDir/build.gradle"
 }
 
-def pattern = "quartz"
-task ('copying_'+pattern) {
+def pattern = "i18n"
+//task ('copying_'+pattern) {
+task deployBootWar {
+	dependsOn bootWar
 	group = 'aa.custom.gradle.task'
-
 	doLast {
 	
-		//copy additional packages
-		def quartzPacks = ['exception', 'schedule', 'security', 'spring']	
-		quartzPacks.each { val -> // `it` is the current element, while `i` is the index
-		    println "copy -R folders : $projectDir/src/main/java/aa/$val to $quartzDestProjectSrc"
-		    copy {
-			    from("$projectDir/src/main/java/aa") { //use " if variable in it
-					//include "src/main/java/aa/$val/**"  (X)
-					//include "**/$val" //this will copy folder only
-					include "$val/**"
-				}
-				into quartzDestProjectSrc
-			}
-		}
-		
-		//resources
-		File destFile = new File(quartzDestProject+'/src/main/resources/quartz.properties')
+		println "deployBootWar..."
+	
+		//File destFile = new File(quartzDestProject+'/src/main/resources/quartz.properties')
 		//if (!destFile.exists()) {
 			copy {
-				from file("$projectDir/src/main/resources/quartz.properties")
-	    		into file("$quartzDestProject/src/main/resources")
-	    		into file("$quartzDestProject/src/main/resources-profile/prod")
+				from file("$projectDir/build/libs/aa.kosa-0.0.1-SNAPSHOT.war")
+	    		into file("D:/app/Tomcat 9.0/webapps")
+	    		rename { String filename ->
+					return "kosa.war"
+			    }
 			}
 		//} else {
 		//	println "File $destFile exists."
@@ -155,8 +145,8 @@ task testGroovy {
 	
 	doLast {
 		assert closureWithTwoArgs(1,2) == 3
-		//appendConfigFile("$projectDir/src/main/resources/application.properties", "$quartzDestProject/src/main/resources/application.properties", startPattern, endPattern )
 	}
 }
 
 
+build.finalizedBy(deployBootWar)
