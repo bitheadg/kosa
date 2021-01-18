@@ -17,12 +17,11 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 //@ImportResource("application-context.xml")
-//public class Application extends SpringBootServletInitializer { //to make use of Spring Framework��s Servlet 3.0 support and lets you configure your application when it is launched by the servlet container. Servlet 3.0 ���忡 ���ο� ��� �� �ϳ��� web.xml ���� ������ �������� ���̴�.
-public class Application {
+public class Application extends SpringBootServletInitializer { //to make use of Spring Framework��s Servlet 3.0 support and lets you configure your application when it is launched by the servlet container. Servlet 3.0 ���忡 ���ο� ��� �� �ϳ��� web.xml ���� ������ �������� ���̴�.
+//public class Application {
 	public static void main(String[] args) {
-		//SpringApplication.run(Application.class, args).getBean(ScheduleCockpit.class).startScheduler();
-		
-		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+		SpringApplication.run(Application.class, args);
+		//ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 		
 	}
 	
@@ -45,8 +44,8 @@ public class Application {
 		ajpConnector.setAllowTrace(false);
 		ajpConnector.setScheme("http");
 		//to avoid: java.lang.IllegalArgumentException: The AJP Connector is configured with secretRequired="true" but the secret attribute is either null or "". This combination is not valid.
-		//((AbstractAjpProtocol)ajpConnector.getProtocolHandler()).setSecretRequired(false);
-		((AbstractAjpProtocol)ajpConnector.getProtocolHandler()).setRequiredSecret(null);
+		//((AbstractAjpProtocol<?>)ajpConnector.getProtocolHandler()).setSecretRequired(false);
+		((AbstractAjpProtocol<?>)ajpConnector.getProtocolHandler()).setRequiredSecret(null);
 		return ajpConnector;
 	  }
 	  
