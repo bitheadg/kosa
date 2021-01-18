@@ -21,7 +21,7 @@ public class II_BootMVCController {
 	@GetMapping("/i18n")
 	public String i18n(Model m) {
 		//return "thymeleaf/international";
-		m.addAttribute("param1", "자바");
+		m.addAttribute("param1", "모델 속성값");
 		return "thymeleaf/i18n_thymeleaf"; //expecting under templates folder **/thymeleaf *.html not jsp
 	}
 	 
