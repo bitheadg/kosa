@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 //@ImportResource("application-context.xml")
-public class Application extends SpringBootServletInitializer { //to make use of Spring Framework¡¯s Servlet 3.0 support and lets you configure your application when it is launched by the servlet container. Servlet 3.0 ½ºÆå¿¡ »õ·Î¿î ±â´É Áß ÇÏ³ª´Â web.xml ¾øÀÌ ¹èÆ÷°¡ °¡´ÉÇØÁø °ÍÀÌ´Ù.
+public class Application extends SpringBootServletInitializer { //to make use of Spring Frameworkâ€™s Servlet 3.0 support and lets you configure your application when it is launched by the servlet container. Servlet 3.0 ìŠ¤íŽ™ì— ìƒˆë¡œìš´ ê¸°ëŠ¥ ì¤‘ í•˜ë‚˜ëŠ” web.xml ì—†ì´ ë°°í¬ê°€ ê°€ëŠ¥í•´ì§„ ê²ƒì´ë‹¤.
 
 	public static void main(String[] args) {
 		//SpringApplication.run(Application.class, args).getBean(ScheduleCockpit.class).startScheduler();
@@ -22,13 +22,6 @@ public class Application extends SpringBootServletInitializer { //to make use of
 		
 	}
 	
-	/* seems not used
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Application.class);
-	}
-	*/
-
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
