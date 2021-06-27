@@ -23,11 +23,5 @@ public class I_BootRestController {
           .collect(Collectors.toList());
     }
     
-    /*
-    @PostMapping("/user")
-    public User create(@RequestBody User user) {
-        return null;
-    }
-    */
 
 }
