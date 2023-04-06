@@ -1,2 +1,13 @@
 /.gradle/
+<<<<<<< HEAD
 /build/
+=======
+<<<<<<< HEAD
+/build/
+/bin/
+/.settings/
+/.classpath
+/.project
+=======
+>>>>>>> branch 'main' of https://github.com/bitheadg/kosa
+>>>>>>> branch 'main' of https://github.com/bitheadg/kosa.git
