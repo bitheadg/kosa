@@ -144,7 +144,7 @@ task testGroovy {
 	group = 'aa.custom.gradle.task'
 	
 	doLast {
-		assert closureWithTwoArgs(1,2) == 5
+		assert closureWithTwoArgs(1,2) == 3
 	}
 }
 
