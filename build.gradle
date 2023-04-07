@@ -124,7 +124,7 @@ task deployBootWar {
 		//if (!destFile.exists()) {
 			copy {
 				from file("$projectDir/build/libs/aa.kosa-0.0.1-SNAPSHOT.war")
-	    		into file("/opt")
+	    		into file("/var/jenkins_home")
 	    		rename { String filename ->
 					return "kosa.war"
 			    }
